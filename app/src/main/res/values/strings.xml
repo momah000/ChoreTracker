@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NavDrawerTest</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string-array name="spinnerItems">
+        <item>Waqas</item>
+        <item>Adil</item>
+        <item>Quinn</item>
+        <item>Mustafa</item>
+        <item>Obinna</item>
+    </string-array>
+</resources>

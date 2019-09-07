@@ -74,12 +74,23 @@
                         android:layout_height="10dp"
                         android:layout_weight="1" />
 
-                    <Spinner
-                        android:id="@+id/spinner"
+                    <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:entries="@array/spinnerItems" />
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ListView
+                                android:id="@+id/choosePersonID"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp" />
+                        </LinearLayout>
+
+                    </ScrollView>
 
                     <Space
                         android:layout_width="match_parent"

@@ -35,6 +35,7 @@ public class CreateProfile extends AppCompatActivity {
     public void addProfileToDB (View view)
     {
         Profile profile = new Profile(text.getText().toString());
+        profile.setPoints(0);
         MyDBHandler dbHandler = new MyDBHandler(this);
          boolean result = dbHandler.addProfile(profile);
 

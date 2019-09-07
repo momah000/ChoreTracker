@@ -67,6 +67,7 @@ public class ProfilesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profiles);   // content is page of all profiles
         profileList = new ArrayList<>();
+        MyDBHandler dbHandler = new MyDBHandler(this);
 
         listView = (ListView) findViewById(R.id.profileListID);   // setting up variables
 
@@ -83,7 +84,8 @@ public class ProfilesActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-                Intent editorLaunchInterest = new Intent(getApplicationContext(), ChoreEditorActivity.class); // what happens when you press on a profile
+                Intent editorLaunchInterest = new Intent(getApplicationContext(), ProfileEditorActivity.class); // what happens when you press on a profile
+                editorLaunchInterest.putExtra("profileName", profileList.get(position));
                 startActivity(editorLaunchInterest);
             }
         });
@@ -128,7 +130,7 @@ public class ProfilesActivity extends AppCompatActivity {
     }
 
     private void addProfileToXMLFile(String name) {
-        try {
+       /* try {
             System.out.println("Are we in the xml editor??");
             String filepath = "C:\\Users\\Adil\\Desktop\\MusicPlayer\\ChoreTracker\\app\\src\\main\\res\\values\\strings.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -160,7 +162,7 @@ public class ProfilesActivity extends AppCompatActivity {
             e.printStackTrace();
         } catch (TransformerException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
         ////////////////  ADD PLUS BUTTON

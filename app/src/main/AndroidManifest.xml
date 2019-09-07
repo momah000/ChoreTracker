@@ -25,7 +25,8 @@
         <activity android:name=".ProfilesActivity" />
         <activity android:name=".CreateProfile" />
         <activity android:name=".ChoreEditorActivity" />
-        <activity android:name=".ProfileEditorActivity"></activity>
+        <activity android:name=".ProfileEditorActivity" />
+        <activity android:name=".RemoveChoreFromProfile"></activity>
     </application>
 
 </manifest>

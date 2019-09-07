@@ -2,6 +2,7 @@ package com.example.adil.navdrawertest;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    /*@Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.   // THIS ADDS PLUS BUTTON
         getMenuInflater().inflate(R.menu.main, menu);
@@ -71,9 +72,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent myIntent = new Intent(MainActivity.this,CreateChore.class);
-            startActivityForResult(myIntent,1);
+        if (id == R.id.view_chores) {
+
 
         }
 
@@ -124,6 +124,30 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void viewAll(){
+        MyDBHandler dbHandler = new MyDBHandler(this);
+        Cursor res = dbHandler.getAllData();
+        if(res.getCount() == 0){
+            return;
+        }
+        else{
+            StringBuffer buffer = new StringBuffer();
+            while(res.moveToNext()){
+                buffer.append ("ID : " + res.getString(0) + "\n");
+                buffer.append ("ChoreName : " + res.getString(1)+ "\n");
+                buffer.append ("Chore Requirements : " + res.getString(2) + "\n");
+                buffer.append ("Chore Description : " + res.getString(3) + "\n");
+                buffer.append ("Chore Points : " + res.getString(4) + "\n");
+            }
+
+            showMessage("Data: ",buffer.toString());
+        }
+    }
+
+    public void showMessage(String title, String message){
+
     }
 
     /////////////////////////////////////////////////////////////////////////////

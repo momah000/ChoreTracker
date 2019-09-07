@@ -21,7 +21,6 @@ public class Chore {
         this.requirements = " ";
         this.description = " ";
         this.points = 0;
-
     }
 
     public Chore (String name, String requirements, String description, int points){

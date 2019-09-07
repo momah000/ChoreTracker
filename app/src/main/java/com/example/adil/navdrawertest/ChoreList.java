@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by Adil on 2017-11-09.
  */
@@ -55,7 +57,7 @@ public class ChoreList extends android.support.v4.app.Fragment {
                 Intent editorLaunchInterest = new Intent(getActivity().getApplicationContext(), ChoreEditorActivity.class); // Goes to another page , goes to another intent
                 //editorLaunchInterest.putExtra("position",position);
                editorLaunchInterest.putExtra("name",choreList.get(position));
-                startActivityForResult(editorLaunchInterest, 0);
+                startActivityForResult(editorLaunchInterest, 3);
             }
         });
 
@@ -66,7 +68,14 @@ public class ChoreList extends android.support.v4.app.Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         System.out.println("So did we get into the fragment part tho??");
-        addChore(data.getStringExtra("choreName"));
+        if(requestCode==1 && resultCode==RESULT_OK){
+            System.out.println("This should not work when completing chore");
+            addChore(data.getStringExtra("choreName"));
+        }
+
+        MyDBHandler dbHandler = new MyDBHandler(getContext());
+
+
 
     }
 
